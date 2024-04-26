@@ -36,7 +36,7 @@ try {
     JSON.stringify(
       orderBy(
         result.filter((item) => item.updateTime),
-        ['updateTime'],
+        ['name', 'updateTime'],
         ['desc']
       )
     ),

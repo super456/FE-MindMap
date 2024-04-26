@@ -103,7 +103,7 @@ function generateList(list) {
 
   return orderBy(
     list.filter((item) => item.updateTime),
-    ['updateTime'],
+    ['name', 'updateTime'],
     ['desc']
   )
     .map(
