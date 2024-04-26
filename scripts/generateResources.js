@@ -11,7 +11,7 @@ function getXmindList(directory = '') {
       const time = res.stdout.split('\n')
       return {
         name: name.replace('.xmind', ''),
-        path: `/${encodeURI(path)}`,
+        path: `./${encodeURI(path)}`,
         updateTime: time.at(0),
         createdTime: time.at(-1)
       }
