@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { XMindEmbedViewer } from 'xmind-embed-viewer'
-
-import MMDropdownMenu from './MMDropdownMenu.vue'
+import DropdownMenu from './DropdownMenu.vue'
 
 const props = defineProps<{ viewer: XMindEmbedViewer }>()
 
@@ -40,7 +39,7 @@ const handleOpenLocalFile = async () => {
 
 <template>
   <div class="control">
-    <MMDropdownMenu @click="handleLoadFile" />
+    <DropdownMenu @click="handleLoadFile" />
     <button class="btn" @click="handleOpenLocalFile">打开本地文件</button>
   </div>
 </template>

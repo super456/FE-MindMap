@@ -15,9 +15,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run generateResources && vue-tsc && vite build",
+    "build": "pnpm run gxmind && vue-tsc && vite build",
     "gxmind": "node scripts/generateResources.js",
     "greadme": "node scripts/generateReadme.js",
+    "preview": "vite serve docs",
     "prettier": "prettier --write \"README.md\""
   },
   "dependencies": {

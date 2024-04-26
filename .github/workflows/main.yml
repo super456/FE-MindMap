@@ -1,0 +1,60 @@
+name: 纵倾童鞋知识图谱自动部署
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    # 注意⚠️：只在文件变更时触发
+    # paths:
+      # - '**.xmind'
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Node.js 版本：${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          # cache: pnpm
+
+      - name: 安装 pnpm
+        run: npm install pnpm -g
+
+      - name: 安装依赖
+        run: pnpm install
+
+      - name: 打包
+        run: pnpm run build
+
+      - name: 部署到 Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: super456/FE-MindMap
+          clean: true
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          branch: action-pages
+          folder: docs
+
+      - name: 生成 README
+        run: pnpm greadme && pnpm prettier
+
+      - name: Commit 生成的 README
+        uses: github-actions-x/commit@v2.9
+        with:
+          github-token: ${{ secrets.ACCESS_TOKEN }}
+          commit-message: 'feat: 🚀Update README.md by Github Actions'
+          push-branch: main
+          name: github-actions[bot]

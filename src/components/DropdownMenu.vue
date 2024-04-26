@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { ref, Teleport } from 'vue'
 import { useFloating, offset } from '@floating-ui/vue'
-
 import data from '../../public/xmind.json'
 
 const emit = defineEmits<{

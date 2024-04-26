@@ -10,6 +10,7 @@ node_modules
 build
 cache
 dist
+docs
 .temp
 
 # 注意本地生成的文件不会上传，GitHub 自动构建生成最新的
