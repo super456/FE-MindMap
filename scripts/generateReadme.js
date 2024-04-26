@@ -3,7 +3,7 @@ import { execa } from 'execa'
 import { globbySync } from 'globby'
 import { orderBy } from 'lodash-es'
 
-const MD_HEADER = `# FE-MindMap
+const MD_HEADER = `# 前端知识图谱
 
 纵倾童鞋的前端知识学习图谱，根据前端领域学习过程总结，用思维导图的方式总结个人所学知识和整个技能体系，方便梳理知识点、结构化输出、总结核心技术点等，期待您的关注⭐️（持续更新中🚀...）
 

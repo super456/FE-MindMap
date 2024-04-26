@@ -4,7 +4,7 @@ import { useFloating, offset } from '@floating-ui/vue'
 import data from '../../public/xmind.json'
 
 const emit = defineEmits<{
-  (e: 'click', filePath: string): void
+  (e: 'click', filePath: string, fileName: string): void
 }>()
 
 const trigger = ref()
@@ -22,15 +22,14 @@ const handleTrigger = () => {
   update()
 }
 
-const handleClick = (filePath: string) => {
+const handleClick = (filePath: string, fileName: string) => {
   open.value = false
-  emit('click', filePath)
+  emit('click', filePath, fileName)
 }
 </script>
 
 <template>
   <button class="btn" ref="trigger" @click="handleTrigger">
-    切换 Xmind
     <svg
       class="btn-icon"
       width="16"
@@ -52,6 +51,7 @@ const handleClick = (filePath: string) => {
         stroke-linecap="round"
       />
     </svg>
+    切换知识图谱
   </button>
   <Teleport to="body">
     <div
@@ -60,7 +60,7 @@ const handleClick = (filePath: string) => {
       ref="tooltip"
     >
       <div class="dropdown-menu">
-        <div v-for="item in data" class="dropdown-item" @click="handleClick(item.path)">
+        <div v-for="item in data" class="dropdown-item" @click="handleClick(item.path, item.name)">
           {{ item.name }} [{{ item.updateTime }}]
         </div>
       </div>

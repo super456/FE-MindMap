@@ -26,6 +26,8 @@ a {
 
 .nav {
   position: fixed;
+  display: flex;
+  align-items: center;
   right: 14px;
   top: 14px;
   margin: 10px 0;
