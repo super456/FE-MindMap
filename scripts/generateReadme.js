@@ -113,8 +113,8 @@ function generateList(list) {
         } <img alt="" height="16" src="https://img.shields.io/github/size/super456/FE-MindMap/${encodeURI(
           item.path
         )}" align="center" />](/${encodeURI(item.path)})
-  - 创建时间: ${item.createdTime}
-  - 更新时间: ${item.updateTime}`
+  - 💡创建时间: ${item.createdTime}
+  - 🛠️更新时间: ${item.updateTime}`
     )
     .join('\n')
 }
@@ -125,6 +125,9 @@ try {
 
   // 组装列表数据
   const result = await Promise.all(getXmindList('xmind'))
+  // 统计数量
+  md += `🧮 **总计**: ${result.length} 个思维导图文件 🎉🥳` + MD_FOOTER
+
   md += generateList(result)
 
   // 组装 MD 尾部

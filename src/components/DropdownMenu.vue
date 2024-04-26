@@ -51,7 +51,7 @@ const handleClick = (filePath: string, fileName: string) => {
         stroke-linecap="round"
       />
     </svg>
-    切换知识图谱
+    切换知识图谱（总计 {{ data.length }} 个思维导图文件）
   </button>
   <Teleport to="body">
     <div
