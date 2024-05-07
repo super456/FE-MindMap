@@ -110,9 +110,9 @@ function generateList(list) {
       (item) =>
         `- [x] [${
           item.name
-        } <img alt="" height="16" src="https://img.shields.io/github/size/super456/FE-MindMap/${encodeURI(
+        } <img style="display:inline-block" alt="${item.name}" height="16" src="https://img.shields.io/github/size/super456/FE-MindMap/${encodeURI(
           item.path
-        )}" align="center" />](/${encodeURI(item.path)})
+        )}" align="center" />](https://github.com/super456/FE-MindMap/blob/main/${encodeURI(item.path)})
   - 💡创建时间: ${item.createdTime}
   - 🛠️更新时间: ${item.updateTime}`
     )
